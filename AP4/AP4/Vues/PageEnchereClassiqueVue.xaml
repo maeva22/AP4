@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AP4.Vues.PageEnchereClassiqueVue"
+             Title="Enchere">
+    <ContentPage.Content>
+        <Grid>
+            <BoxView>
+                <BoxView.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="blue" Offset="0"/>
+                        <GradientStop Color="white" Offset="1"/>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <StackLayout  HorizontalOptions="Center" Margin="0,20,0,0">
+                <Label Text="{Binding LEnchere.LeTypeEnchere.Nom,StringFormat='Enchères {0}'}"
+                    TextColor="White" 
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="Center" Margin="5,60,5,0">
+                <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10" WidthRequest="280">
+                    <StackLayout>
+                        <Image Source="{Binding LEnchere.LeProduit.Photo}"
+                                    WidthRequest="250" 
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
+                        <Label Text="{Binding LEnchere.LeProduit.Nom}"
+                                    TextColor="White" 
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Center"/>
+                        <Label Text="{Binding LEnchere.Prixreserve,StringFormat='Le Prix de réservé est de {0} €'}"
+                                    TextColor="White" 
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Center"/>
+                    </StackLayout>
+                </Frame>
+                <CollectionView ItemsSource="{Binding ListeEncherirDeLEnchere}" VerticalOptions="Fill">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                                    <Label Text="{Binding PrixEnchere,StringFormat='Prix de enchère : {0}€'}"
+                                            TextColor="Black" 
+                                            HorizontalTextAlignment="Center"
+                                            FontAttributes="Italic"/>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Entry Placeholder="Entrez une valeur" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

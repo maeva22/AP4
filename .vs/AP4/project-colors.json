@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ece92ae6-50d6-43e1-b7d2-d26b8b1c25c2": {
+      "ProjectGuid": "ece92ae6-50d6-43e1-b7d2-d26b8b1c25c2",
+      "DisplayName": "AP4",
+      "ColorIndex": 0
+    },
+    "8263aa46-684a-4610-b545-0f98c5296908": {
+      "ProjectGuid": "8263aa46-684a-4610-b545-0f98c5296908",
+      "DisplayName": "AP4.Android",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Fichiers divers",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}

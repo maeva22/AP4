@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AP4.Vues.PageIndexVue"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <Grid>
+            <BoxView Grid.RowSpan="3">
+                <BoxView.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="blue" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <StackLayout HorizontalOptions="Center" Spacing="30" Margin="0,50,0,0">
+                <Image  Source="logoEnchere.png"
+                        WidthRequest="200"
+                        HeightRequest="200"/>
+            </StackLayout>
+            <StackLayout Grid.Row="1" HorizontalOptions="Center" Margin="40,80,40,0" Spacing="30">
+                <Label Text="Bienvenue"  
+                       HorizontalOptions="Center"
+                       TextColor="White"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Large"/>
+                <Label Text="Vous trouverez ici les meilleurs enchères de figurines du pays !!!"  
+                       HorizontalOptions="Center"
+                       TextColor="White"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Medium"/>
+            </StackLayout>
+            <StackLayout Grid.Row="2" HorizontalOptions="Center" Margin="40,0,40,0" Spacing="30">
+                <!--Spacing espace entre 2 -->
+                <Button Text="Connexion" 
+                        BackgroundColor="Blue"
+                        TextColor="White"
+                        WidthRequest="150"
+                        HeightRequest="46"
+                        CornerRadius="23"
+                        Command="{Binding CommandBoutonConnexion}"/>
+                <Button Text="Inscription" 
+                        BackgroundColor="Red"
+                        TextColor="White"
+                        WidthRequest="150"
+                        HeightRequest="46"
+                        CornerRadius="23"
+                        Command="{Binding CommandBoutonInscription}"/>
+                <Label FontSize="16">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Continuer sans se connecter"
+                                      TextColor="Gray"
+                                      TextDecorations="Underline">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TapCommandAccueil}"/>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

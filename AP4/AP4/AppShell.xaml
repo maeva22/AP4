@@ -1,0 +1,58 @@
+﻿<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:sys="clr-namespace:System;assembly=netstandard"
+    xmlns:views="clr-namespace:AP4.Vues" 
+    xmlns:controls="clr-namespace:AP4.Controls"
+    x:Class="AP4.AppShell"
+    x:Name="shell">
+    <Shell.Resources>
+        <Style x:Key="BaseStyle"
+            TargetType="Element">
+            <Setter Property="Shell.BackgroundColor"
+                Value="#a8d5ff" />
+            <Setter Property="Shell.ForegroundColor"
+                Value="white" />
+            <Setter Property="Shell.TitleColor"
+                Value="White" />
+            <Setter Property="Shell.DisabledColor"
+                Value="#B4FFFFFF" />
+            <Setter Property="Shell.UnselectedColor"
+                Value="#95FFFFFF" />
+        </Style>
+        <Style TargetType="ShellItem"
+            BasedOn="{StaticResource BaseStyle}"/>
+        <Style x:Key="enchereEnCours"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="#a8d5ff" />
+        </Style>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader>
+        <controls:FlyoutHeader />
+    </Shell.FlyoutHeader>
+    <Shell.FlyoutFooter>
+        <controls:FlyoutFooter />
+    </Shell.FlyoutFooter>
+
+    <FlyoutItem Route="enchereEnCours"
+                FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Route="classiques"
+            Title="Classiques"
+            Style="{StaticResource enchereEnCours}"
+            Icon="classique.png"
+            ContentTemplate="{DataTemplate views:PageAccueilVue}" />
+        <ShellContent Route="inversees"
+            Title="Inversées"
+            Style="{StaticResource enchereEnCours}"
+            Icon="inversees.png"
+            ContentTemplate="{DataTemplate views:PageAccueilVue}" />
+        <ShellContent Route="flashs"
+            Title="Flashs"
+            Style="{StaticResource enchereEnCours}"
+            Icon="flashs.png"
+            ContentTemplate="{DataTemplate views:PageAccueilVue}" />
+    </FlyoutItem>
+
+</Shell>

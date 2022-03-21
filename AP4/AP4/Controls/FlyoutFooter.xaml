@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             x:Class="AP4.Controls.FlyoutFooter">
+    <StackLayout>
+        <Label Text="AP4"
+               TextColor="LightGray"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+        <Label Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:dd MMMM yyyy}'}"
+               TextColor="LightGray"
+               HorizontalOptions="Center" />
+    </StackLayout>
+</ContentView>
