@@ -1,4 +1,5 @@
-﻿using AP4.Vues;
+﻿using AP4.VueModeles;
+using AP4.Vues;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +23,8 @@ namespace AP4
             RegisterRoutes();
             BindingContext = this;
         }
-
         void RegisterRoutes()
         {
-            //Routes.Add("enchereEnCoursClassique", typeof(PageEnchereClassiqueVue));
             Routes.Add("classiques", typeof(PageAccueilVue));
             Routes.Add("inversees", typeof(PageAccueilVue));
             Routes.Add("flashs", typeof(PageAccueilVue));

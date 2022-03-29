@@ -47,7 +47,8 @@
             </StackLayout>
 
             <StackLayout HorizontalOptions="Center" Margin="20,160,20,0">
-                <CollectionView ItemsSource="{Binding MaListeEncheresEnCours}" VerticalOptions="Fill" 
+                <CollectionView ItemsSource="{Binding MaListeEncheresEnCoursClassique}" VerticalOptions="Fill" 
+                                IsVisible="{Binding VisibleEnchereEnCoursClassique}"
                                 SelectionMode="Single"
                                 SelectionChanged="OnCollectionViewSelectionChanged">
                     <CollectionView.ItemsLayout>
@@ -95,6 +96,104 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
+                <!--<CollectionView ItemsSource="{Binding MaListeEncheresEnCoursInverse}" VerticalOptions="Fill" 
+                                IsVisible="{Binding VisibleEnchereEnCoursInverse}"
+                                SelectionMode="Single"
+                                SelectionChanged="OnCollectionViewSelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RowDefinitions="200,10,1" >
+                                <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10">
+                                    <Grid>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                                            <Image Source="{Binding LeProduit.Photo}"
+                                                WidthRequest="125" 
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center"/>
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="Center" Spacing="10">
+                                                <Label Text="{Binding LeProduit.Nom}"
+                                                    Padding="0,15,0,0"
+                                                    TextColor="White"
+                                                    HorizontalTextAlignment="Center"
+                                                    FontAttributes="Bold"/>
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                                                    <Label Text="{Binding LeMagasin.Nom}"
+                                                        TextColor="White"
+                                                        HorizontalTextAlignment="Center"
+                                                        FontAttributes="Italic"/>
+                                                    <Label Text="{Binding LeMagasin.Ville}"
+                                                        TextColor="White" 
+                                                        HorizontalTextAlignment="Center"
+                                                        FontAttributes="Italic"/>
+                                                </StackLayout>
+                                                <Label Text="{Binding Prixreserve,StringFormat='Prix de réserve : {0}€'}"
+                                                        TextColor="White" 
+                                                        HorizontalTextAlignment="Center"
+                                                        FontAttributes="Italic"/>
+                                                <Label Text="{Binding DateFin, StringFormat='Fin de l\'enchère le : {0} '}"
+                                                        TextColor="White" 
+                                                        HorizontalTextAlignment="Center"
+                                                        FontAttributes="Italic"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <CollectionView ItemsSource="{Binding MaListeEncheresEnCoursFlash}" VerticalOptions="Fill" 
+                                IsVisible="{Binding VisibleEnchereEnCoursFlash}"
+                                SelectionMode="Single"
+                                SelectionChanged="OnCollectionViewSelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RowDefinitions="200,10,1" >
+                                <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10">
+                                    <Grid>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                                            <Image Source="{Binding LeProduit.Photo}"
+                                                WidthRequest="125" 
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center"/>
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="Center" Spacing="10">
+                                                <Label Text="{Binding LeProduit.Nom}"
+                                                    Padding="0,15,0,0"
+                                                    TextColor="White"
+                                                    HorizontalTextAlignment="Center"
+                                                    FontAttributes="Bold"/>
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                                                    <Label Text="{Binding LeMagasin.Nom}"
+                                                        TextColor="White"
+                                                        HorizontalTextAlignment="Center"
+                                                        FontAttributes="Italic"/>
+                                                    <Label Text="{Binding LeMagasin.Ville}"
+                                                        TextColor="White" 
+                                                        HorizontalTextAlignment="Center"
+                                                        FontAttributes="Italic"/>
+                                                </StackLayout>
+                                                <Label Text="{Binding Prixreserve,StringFormat='Prix de réserve : {0}€'}"
+                                                        TextColor="White" 
+                                                        HorizontalTextAlignment="Center"
+                                                        FontAttributes="Italic"/>
+                                                <Label Text="{Binding DateFin, StringFormat='Fin de l\'enchère le : {0} '}"
+                                                        TextColor="White" 
+                                                        HorizontalTextAlignment="Center"
+                                                        FontAttributes="Italic"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>-->
             </StackLayout>
         </Grid>
     </ContentPage.Content>

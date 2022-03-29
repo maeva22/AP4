@@ -4,58 +4,92 @@
              x:Class="AP4.Vues.PageEnchereClassiqueVue"
              Title="Enchere">
     <ContentPage.Content>
-        <Grid>
-            <BoxView>
-                <BoxView.Background>
-                    <LinearGradientBrush>
-                        <GradientStop Color="blue" Offset="0"/>
-                        <GradientStop Color="white" Offset="1"/>
-                    </LinearGradientBrush>
-                </BoxView.Background>
-            </BoxView>
-            <StackLayout  HorizontalOptions="Center" Margin="0,20,0,0">
-                <Label Text="{Binding LEnchere.LeTypeEnchere.Nom,StringFormat='Enchères {0}'}"
-                    TextColor="White" 
-                    FontAttributes="Bold"
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-
-            <StackLayout HorizontalOptions="Center" Margin="5,60,5,0">
-                <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10" WidthRequest="280">
-                    <StackLayout>
-                        <Image Source="{Binding LEnchere.LeProduit.Photo}"
-                                    WidthRequest="250" 
-                                    VerticalOptions="Center"
-                                    HorizontalOptions="Center"/>
-                        <Label Text="{Binding LEnchere.LeProduit.Nom}"
+        <ScrollView>
+            <Grid>
+                <BoxView>
+                    <BoxView.Background Grid.RowSpan="1">
+                        <LinearGradientBrush>
+                            <GradientStop Color="blue" Offset="0"/>
+                            <GradientStop Color="white" Offset="1"/>
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+                <StackLayout HorizontalOptions="Center" Margin="5,20,5,0">
+                    <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10" WidthRequest="280">
+                        <StackLayout>
+                            <Image Source="{Binding LEnchere.LeProduit.Photo}"
+                                        WidthRequest="250" 
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"/>
+                            <Label Text="{Binding LEnchere.LeProduit.Nom}"
+                                        TextColor="White" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Center"/>
+                            <Label Text="{Binding LEnchere.Prixreserve,StringFormat='Le Prix de réservé est de {0} €'}"
+                                        TextColor="White" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Center"/>
+                            <Label Text="{Binding PrixActuel.PrixEnchere,StringFormat='Prix de enchère : {0} €'}"
                                     TextColor="White" 
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="Center"/>
-                        <Label Text="{Binding LEnchere.Prixreserve,StringFormat='Le Prix de réservé est de {0} €'}"
-                                    TextColor="White" 
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="Center"/>
-                    </StackLayout>
-                </Frame>
-                <CollectionView ItemsSource="{Binding ListeEncherirDeLEnchere}" VerticalOptions="Fill">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical" Span="1" />
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
-                                    <Label Text="{Binding PrixEnchere,StringFormat='Prix de enchère : {0}€'}"
-                                            TextColor="Black" 
-                                            HorizontalTextAlignment="Center"
-                                            FontAttributes="Italic"/>
-                                </StackLayout>
-                            </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-                <Entry Placeholder="Entrez une valeur" />
-            </StackLayout>
-        </Grid>
+                                    HorizontalTextAlignment="Center"
+                                    FontAttributes="Italic"/>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="30">
+                                <Label Text="{Binding TempsRestantJour,StringFormat='{0} Jours'}" FontAttributes="Bold" TextColor="Black" />
+                                <Label Text="{Binding TempsRestantHeures,StringFormat='{0} H'}" FontAttributes="Bold" TextColor="Black"/>
+                                <Label Text="{Binding TempsRestantMinutes,StringFormat='{0} min'}" FontAttributes="Bold" TextColor="black"/>
+                                <Label Text="{Binding TempsRestantSecondes,StringFormat='{0}s'}" FontAttributes="Bold" TextColor="Black"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center" Margin="20,420,20,0">
+                    <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10" HeightRequest="100">
+                        <CollectionView ItemsSource="{Binding ListeEncherirDeLEnchere}" HorizontalScrollBarVisibility="Always">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Horizontal"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid >
+                                        <Frame BackgroundColor="LightGray" HasShadow="False"  CornerRadius="10" Margin="10" HeightRequest="70">
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                                                <Label Text="{Binding Pseudo}"
+                                                TextColor="Black" 
+                                                FontAttributes="Bold"
+                                                HorizontalOptions="Center"/>
+                                                <Label Text="{Binding PrixEnchere,StringFormat='{0} €'}"
+                                                TextColor="Black" 
+                                                FontAttributes="Bold"
+                                                HorizontalOptions="Center"/>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </Frame>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center" Margin="0,555,0,0" Spacing="30" Orientation="Horizontal">
+                    <Entry Text="{Binding NewPrixEnchere,StringFormat=''}"
+                        BackgroundColor="Transparent"
+                        Placeholder="Enchérissez"
+                        PlaceholderColor="White"
+                        TextColor="White"
+                        WidthRequest="150"
+                        VerticalOptions="Center"
+                        MaxLength="10"
+                        Keyboard="Numeric"
+                        HorizontalTextAlignment="Center"
+                        ClearButtonVisibility="WhileEditing"/>
+                    <Button Text="Enchérir" 
+                        BackgroundColor="#a8d5ff"
+                        TextColor="White"
+                        WidthRequest="150"
+                        VerticalOptions="Center"
+                        CornerRadius="23"
+                        Command="{Binding CommandBoutonEncherir}"  />
+                </StackLayout>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

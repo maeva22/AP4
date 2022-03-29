@@ -83,7 +83,7 @@ namespace AP4.Vues
                     // vérifier que le mot de passe entré et le même entré dans le mot de passe de vérification
                     if (PasswordEntry.Text == PasswordVerifyEntry.Text)
                     {
-                        User unUser = new User(EmailEntry.Text, PasswordEntry.Text, PseudoEntry.Text, null);
+                        User unUser = new User(EmailEntry.Text, PasswordEntry.Text, PseudoEntry.Text, null,0);
                         vueModele.PostUser(unUser);
 
                         await DisplayAlert("Bravo", "enregistrement réussi", "ok");

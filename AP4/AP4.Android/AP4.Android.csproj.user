@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <SelectedDevice>Samsung SM-G960F</SelectedDevice>
-    <ActiveDebugProfile>Samsung SM-G960F</ActiveDebugProfile>
+    <SelectedDevice>pixel_5_pie_9_0_-_api_28</SelectedDevice>
+    <ActiveDebugProfile>pixel_5_pie_9_0_-_api_28</ActiveDebugProfile>
     <DefaultDevice>pixel_5_pie_9_0_-_api_28</DefaultDevice>
     <AndroidDesignerPreferredTheme>MainTheme</AndroidDesignerPreferredTheme>
   </PropertyGroup>

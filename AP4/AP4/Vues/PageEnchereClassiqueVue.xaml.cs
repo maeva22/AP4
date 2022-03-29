@@ -18,16 +18,10 @@ namespace AP4.Vues
     {
 
         PageEnchereClassiqueVueModele vueModele;
-        public PageEnchereClassiqueVue(int param)
+        public PageEnchereClassiqueVue(Enchere param)
         {
             InitializeComponent();
             BindingContext=vueModele=new PageEnchereClassiqueVueModele(param);
-
-            //On ajoute une méthode pour l'obliger à le faire travailler en async
-            Task.Run(async () =>
-            {
-                Enchere uneEnchere = await vueModele.GetLEnchere(param);
-            });
         }
 
 

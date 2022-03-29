@@ -37,22 +37,29 @@
     </Shell.FlyoutFooter>
 
     <FlyoutItem Route="enchereEnCours"
-                FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Route="classiques"
+                FlyoutDisplayOptions="AsSingleItem"
+                Title="Enchère en cours"
+                Icon="EnchereEnCours.png">
+        <ShellContent Route="EnchereClassiques"
             Title="Classiques"
             Style="{StaticResource enchereEnCours}"
             Icon="classique.png"
-            ContentTemplate="{DataTemplate views:PageAccueilVue}" />
-        <ShellContent Route="inversees"
+            ContentTemplate="{DataTemplate views:PageAccueilVue}"/>
+        <ShellContent Route="EnchereInversees"
             Title="Inversées"
             Style="{StaticResource enchereEnCours}"
             Icon="inversees.png"
             ContentTemplate="{DataTemplate views:PageAccueilVue}" />
-        <ShellContent Route="flashs"
+        <ShellContent Route="EnchereFlashs"
             Title="Flashs"
             Style="{StaticResource enchereEnCours}"
             Icon="flashs.png"
             ContentTemplate="{DataTemplate views:PageAccueilVue}" />
     </FlyoutItem>
-
+    <!--<ShellContent Route="Enchere"
+            Title="Toutes les Encheres"
+            Style="{StaticResource enchereEnCours}"
+            Icon="flashs.png"
+            ContentTemplate="{DataTemplate views:PageAccueilVue}" 
+            IsVisible="{Binding Connecter}"/>-->
 </Shell>

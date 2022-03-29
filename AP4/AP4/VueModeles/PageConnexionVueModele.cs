@@ -19,6 +19,7 @@ namespace AP4.VueModeles
         protected Page page;
         private string _emailEntry;
         private string _passwordEntry;
+        private bool auth = false;
         #endregion
 
         #region Constructeurs
@@ -67,21 +68,22 @@ namespace AP4.VueModeles
         }
         public async void OnSubmit()
         {
-            /*if ()
+            User unUser = new User(EmailEntry, PasswordEntry, "nd", null,0);
+            unUser = await _apiServices.GetOneAsync<User>("api/getUserByMailAndPass", User.CollClasse, unUser);
+
+            if (unUser != null)
             {
-                Application.Current.MainPage = new PageAccueilVue();
-                await page.DisplayAlert("Bravo", "Vous êtes connecté!", "ok");
+                auth = true;
+                Storage.StockerMotDePasse(unUser.Id.ToString());
+                Application.Current.MainPage = new AppShell();
+
             }
             else
             {
-                await page.DisplayAlert("Erreur", "Votre mot de passe ou votre email n'est pas bon !", "ok");
-            }*/
+                auth = false;
+                await Application.Current.MainPage.DisplayAlert("Login No", "Echec", "OK");
+            }
         }
-        /*public async void GetListeProduits()
-        {
-            MaListeProduits = await _apiServices.GetAllAsync<Produit>
-                   ("api/getProduits", Produit.CollClasse);
-        }*/
         #endregion
     }
 }

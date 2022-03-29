@@ -641,3 +641,4 @@ C:\Xamarin\AP4\AP4\AP4.Android\obj\Debug\120\android\assets\Plugin.Media.dll
 C:\Xamarin\AP4\AP4\AP4.Android\obj\Debug\120\android\assets\Plugin.Media.pdb
 C:\Xamarin\AP4\AP4\AP4.Android\obj\Debug\120\android\src\crc646957603ea1820544\MediaPickerActivity.java
 C:\Xamarin\AP4\AP4\AP4.Android\obj\Debug\120\res\drawable\back.png
+C:\Xamarin\AP4\AP4\AP4.Android\obj\Debug\120\res\drawable\enchereencours.png

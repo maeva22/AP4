@@ -20,10 +20,12 @@ namespace AP4.Vues
             InitializeComponent();
             BindingContext = vueModele = new PageAccueilVueModele();
         }
-        private void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var enchere = (Enchere)e.CurrentSelection.FirstOrDefault();
-            Navigation.PushAsync(new PageEnchereClassiqueVue(enchere.Id));
+            await Navigation.PushAsync(new PageEnchereClassiqueVue(enchere));
         }
+
+
     }
 }

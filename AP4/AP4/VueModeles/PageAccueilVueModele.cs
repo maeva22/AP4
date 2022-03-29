@@ -14,7 +14,13 @@ namespace AP4.VueModeles
     {
         #region Attributs
         private ObservableCollection<Enchere> _maListeEncheresEnCours;
-        private ObservableCollection<Enchere> _maListe;
+        private ObservableCollection<Enchere> _maListeEncheresEnCoursClassique;
+        private ObservableCollection<Enchere> _maListeEncheresEnCoursInverse;
+        private ObservableCollection<Enchere> _maListeEncheresEnCoursFlash;
+
+        private bool _visibleEnchereEnCoursClassique = true;
+        private bool _visibleEnchereEnCoursInverse = true;
+        private bool _visibleEnchereEnCoursFlash = true;
 
         private readonly Api _apiServices = new Api();
 
@@ -24,7 +30,10 @@ namespace AP4.VueModeles
         #region Constructeurs
         public PageAccueilVueModele()
         {
-            GetListeEncheres();
+            //GetListeEncheres();
+            GetListeEncheresEnCoursClassiques(1);
+            GetListeEncheresEnCoursInversees(2);
+            GetListeEncheresEnCoursFlashs(3);
         }
         #endregion
 
@@ -42,25 +51,79 @@ namespace AP4.VueModeles
                 SetProperty(ref _maListeEncheresEnCours, value);
             }
         }
-        public ObservableCollection<Enchere> MaListe
+        public ObservableCollection<Enchere> MaListeEncheresEnCoursClassique
         {
             get
             {
-                return _maListe;
+                return _maListeEncheresEnCoursClassique;
             }
             set
             {
-                SetProperty(ref _maListe, value);
+                SetProperty(ref _maListeEncheresEnCoursClassique, value);
             }
+        }
+        public ObservableCollection<Enchere> MaListeEncheresEnCoursInverse
+        {
+            get
+            {
+                return _maListeEncheresEnCoursInverse;
+            }
+            set
+            {
+                SetProperty(ref _maListeEncheresEnCoursInverse, value);
+            }
+        }
+        public ObservableCollection<Enchere> MaListeEncheresEnCoursFlash
+        {
+            get
+            {
+                return _maListeEncheresEnCoursFlash;
+            }
+            set
+            {
+                SetProperty(ref _maListeEncheresEnCoursFlash, value);
+            }
+        }
+
+        public bool VisibleEnchereEnCoursClassique
+        {
+            get { return _visibleEnchereEnCoursClassique; }
+            set { SetProperty(ref _visibleEnchereEnCoursClassique, value); }
+        }
+
+        public bool VisibleEnchereEnCoursInverse
+        {
+            get { return _visibleEnchereEnCoursInverse; }
+            set { SetProperty(ref _visibleEnchereEnCoursInverse, value); }
+        }
+        public bool VisibleEnchereEnCoursFlash
+        {
+            get { return _visibleEnchereEnCoursFlash; }
+            set { SetProperty(ref _visibleEnchereEnCoursFlash, value); }
         }
         #endregion
 
         #region Methodes
 
-        public async void GetListeEncheres()
+        /*public async void GetListeEncheres()
         {
             Enchere.CollClasse.Clear();
             MaListeEncheresEnCours = await _apiServices.GetAllAsync<Enchere>("api/getEncheresEnCours", Enchere.CollClasse);
+        }*/
+        public async void GetListeEncheresEnCoursClassiques(int idEnchereEnCoursClassique)
+        {
+            MaListeEncheresEnCoursClassique = await _apiServices.GetAllAsyncID<Enchere>("api/getEncheresEnCours", Enchere.CollClasse, "IdTypeEnchere", idEnchereEnCoursClassique);
+            Enchere.CollClasse.Clear();
+        }
+        public async void GetListeEncheresEnCoursInversees(int idEnchereEnCoursInversees)
+        {
+            MaListeEncheresEnCoursInverse = await _apiServices.GetAllAsyncID<Enchere>("api/getEncheresEnCours", Enchere.CollClasse, "IdTypeEnchere", idEnchereEnCoursInversees);
+            Enchere.CollClasse.Clear();
+        }
+        public async void GetListeEncheresEnCoursFlashs(int idEnchereEnCoursFlashs)
+        {
+            MaListeEncheresEnCoursFlash = await _apiServices.GetAllAsyncID<Enchere>("api/getEncheresEnCours", Enchere.CollClasse, "IdTypeEnchere", idEnchereEnCoursFlashs);
+            Enchere.CollClasse.Clear();
         }
         #endregion
     }

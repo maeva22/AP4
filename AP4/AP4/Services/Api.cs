@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace AP4.Services
             {
                 var clientHttp = new HttpClient();
                 var json = await clientHttp.GetStringAsync(Constantes.BaseApiAddress + paramUrl);
-                JsonConvert.DeserializeObject<List<T>>(json);
+                JsonConvert.DeserializeObject<List<T>>(json, new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd HH:mm:ss" });
                 return GestionCollection.GetListes<T>(param);
             }
             catch (Exception ex)
@@ -61,11 +62,31 @@ namespace AP4.Services
             }
         }
 
-        public async Task<T> GetOneAsync<T>(string paramUrl, List<T> param, int paramId)
+        public async Task<ObservableCollection<T>> GetAllAsyncID<T>(string paramUrl, List<T> param, string cle, int param2)
+        {
+
+
+            try
+            {
+                string jsonString = @"{'" + cle + "':'" + param2 + "'}";
+                JObject getResult = JObject.Parse(jsonString);
+                var clientHttp = new HttpClient();
+                var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
+                var response = await clientHttp.PostAsync(Constantes.BaseApiAddress + paramUrl, jsonContent);
+                var json = await response.Content.ReadAsStringAsync();
+                JsonConvert.DeserializeObject<List<T>>(json);
+                return GestionCollection.GetListes<T>(param);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public async Task<T> GetOneAsyncID<T>(string paramUrl, List<T> param, string paramID)
         {
             try
             {
-                string jsonString = @"{'Id':'" + paramId + "'}";
+                string jsonString = @"{'Id':'" + paramID + "'}";
                 var getResult = JObject.Parse(jsonString);
 
                 var clientHttp = new HttpClient();
@@ -73,7 +94,27 @@ namespace AP4.Services
 
                 var response = await clientHttp.PostAsync(Constantes.BaseApiAddress + paramUrl, jsonContent);
                 var json = await response.Content.ReadAsStringAsync();
-                T res = JsonConvert.DeserializeObject<T>(json);
+                T res = JsonConvert.DeserializeObject<T>(json, new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd HH:mm:ss" });
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return default(T);
+            }
+        }
+
+        public async Task<T> GetOneAsync<T>(string paramUrl, List<T> param, T paramT)
+        {
+            try
+            {
+                var jsonString = JsonConvert.SerializeObject(paramT);
+
+                var clientHttp = new HttpClient();
+                var jsonContent = new StringContent(jsonString, Encoding.UTF8, "application/json");
+
+                var response = await clientHttp.PostAsync(Constantes.BaseApiAddress + paramUrl, jsonContent);
+                var json = await response.Content.ReadAsStringAsync();
+                T res = JsonConvert.DeserializeObject<T>(json, new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd HH:mm:ss" });
                 return res;
             }
             catch (Exception ex)

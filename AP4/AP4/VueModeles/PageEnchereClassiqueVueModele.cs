@@ -5,26 +5,41 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace AP4.VueModeles
 {
     public class PageEnchereClassiqueVueModele : BaseVueModele
     {
-        #region Attributs
-        Enchere _lenchere;
-        Encherir _lencherir;
+        #region Attributs 
+        private Enchere _lenchere;
         private ObservableCollection<Encherir> _listeEncherirDeLEnchere;
+        private Encherir _prixActuel;
+        private float _newPrixEnchere;
+        private string _idUser;
+        private string _pseudoUser;
         private readonly Api _apiServices = new Api();
+        private DecompteTimer tmps;
+        private int _tempsRestantJour;
+        private int _tempsRestantHeures;
+        private int _tempsRestantMinutes;
+        private int _tempsRestantSecondes;
 
         #endregion
         #region Constructeurs
-        public PageEnchereClassiqueVueModele(int param)
+        public PageEnchereClassiqueVueModele(Enchere param)
         {
-            GetActualPrice(true, 6000);
-            GetListeEncherir();
+            _lenchere = param; 
+            this.GetActualPrice();
+            this.GetListeEncherir();
+            tmps = new DecompteTimer();
+            this.GetTimerRemaining(param.DateFin);
+            CommandBoutonEncherir = new Command(ActionCommandBoutonEncherir);
+
         }
         #endregion
 
@@ -40,15 +55,15 @@ namespace AP4.VueModeles
                 SetProperty(ref _lenchere, value);
             }
         }
-        public Encherir LEncherir
+        public float NewPrixEnchere
         {
             get
             {
-                return _lencherir;
+                return _newPrixEnchere;
             }
             set
             {
-                SetProperty(ref _lencherir, value);
+                SetProperty(ref _newPrixEnchere, value);
             }
         }
         public ObservableCollection<Encherir> ListeEncherirDeLEnchere
@@ -62,33 +77,112 @@ namespace AP4.VueModeles
                 SetProperty(ref _listeEncherirDeLEnchere, value);
             }
         }
+        public Encherir PrixActuel
+        {
+            get { return _prixActuel; }
+            set { SetProperty(ref _prixActuel, value); }
+        }
+        public string IdUser
+        {
+            get => _idUser;
+            set => _idUser = value;
+        }
+        public string PseudoUser
+        {
+            get => _pseudoUser;
+            set => _pseudoUser = value;
+        }
+        public ICommand CommandBoutonEncherir { get; }
+
+        public int TempsRestantHeures
+        {
+            get { return _tempsRestantHeures; }
+            set { SetProperty(ref _tempsRestantHeures, value); }
+        }
+        public int TempsRestantJour
+        {
+            get { return _tempsRestantJour; }
+            set { SetProperty(ref _tempsRestantJour, value); }
+        }
+        public int TempsRestantMinutes
+        {
+            get { return _tempsRestantMinutes; }
+            set { SetProperty(ref _tempsRestantMinutes, value); }
+        }
+        public int TempsRestantSecondes
+        {
+            get { return _tempsRestantSecondes; }
+            set { SetProperty(ref _tempsRestantSecondes, value); }
+        }
         #endregion
 
         #region Methodes
-
-        //Va chercher les donner pour une enchère
-        public async Task<Enchere> GetLEnchere(int param)
+        public void GetListeEncherir()
         {
-            LEnchere = await _apiServices.GetOneAsync<Enchere>("api/getEnchere", Enchere.CollClasse, param);
-            return LEnchere;
-        }
-        public async void GetListeEncherir()
-        {
-            Encherir.CollClasse.Clear();
-            ListeEncherirDeLEnchere = await _apiServices.GetAllAsync<Encherir>("api/getLastSixOffer", Encherir.CollClasse);
-        }
-        private void GetActualPrice(bool loopBack, int delay)
-        {
-            /*Device.StartTimer(TimeSpan.FromSeconds(delay), () =>
+            Task.Run(async () =>
             {
-                Task.Run(async () =>
+                do
                 {
-                    LEncherir = await _apiServices.GetOneAsync<Encherir>("api/getActualPrice", "Id", LEnchere.Id);
-                    if (LEncherir == null)
-                        LEncherir = new Encherir() { PrixEnchere = LEnchere.Prixreserve };
-                });
-                return loopBack;
-            });*/
+                    Encherir.CollClasse.Clear();
+                    ListeEncherirDeLEnchere = await _apiServices.GetAllAsyncID<Encherir>("api/getLastSixOffer", Encherir.CollClasse, "Id", LEnchere.Id);
+
+                    Thread.Sleep(2000);
+                }
+                while(true);
+            });
+        }
+        private void GetActualPrice()
+        {
+            Task.Run(async () =>
+            {
+                do
+                {
+                    PrixActuel = await _apiServices.GetOneAsyncID<Encherir>("api/getActualPrice", Encherir.CollClasse, LEnchere.Id.ToString());
+                    Thread.Sleep(2000);
+                }
+                while (true);  
+
+            });
+        }
+        public async void ActionCommandBoutonEncherir()
+        {            
+            if (NewPrixEnchere > PrixActuel.PrixEnchere)
+            {
+                IdUser = await SecureStorage.GetAsync("ID");
+                PseudoUser = await SecureStorage.GetAsync("Pseudo");
+                /*if (PseudoUser != PrixActuel.Pseudo)
+                {*/
+                    Encherir newEncherir = new Encherir(0, LEnchere.Id, int.Parse(IdUser), NewPrixEnchere, PseudoUser);
+                    await _apiServices.PostAsync<Encherir>(newEncherir, "api/postEncherir");
+                /*}
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Vous ne pouvez pas enchèrir sur vous-même! ", "Vous menez l'enchère!", "OK");
+                }*/
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Vous devez proposer un prix plus grand que celui actuel! ","Changez votre prix", "OK");
+            }
+        }
+        public void GetTimerRemaining(DateTime param)
+        {
+            DateTime datefin = param;
+            TimeSpan interval = datefin - DateTime.Now;
+
+
+            Task.Run(() =>
+            {
+                tmps.Start(interval);
+                do
+                {
+                    TempsRestantJour = tmps.TempsRestant.Days;
+                    TempsRestantHeures = tmps.TempsRestant.Hours;
+                    TempsRestantMinutes = tmps.TempsRestant.Minutes;
+                    TempsRestantSecondes = tmps.TempsRestant.Seconds;
+                }
+                while (tmps.TempsRestant > TimeSpan.Zero) ;
+            });
         }
         #endregion
     }
