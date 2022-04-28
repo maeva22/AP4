@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AP4.Vues.PageEnchereClassiqueVue"
+             x:Class="AP4.Vues.PageEnchereClassiqueVue" 
              Title="Enchere">
     <ContentPage.Content>
         <ScrollView>
@@ -14,6 +14,7 @@
                         </LinearGradientBrush>
                     </BoxView.Background>
                 </BoxView>
+                <Image Source="money2.gif" IsAnimationPlaying="True" IsVisible="{Binding Animation}"/>
                 <StackLayout HorizontalOptions="Center" Margin="5,20,5,0">
                     <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10" WidthRequest="280">
                         <StackLayout>
@@ -29,11 +30,11 @@
                                         TextColor="White" 
                                         FontAttributes="Bold"
                                         HorizontalOptions="Center"/>
-                            <Label Text="{Binding PrixActuel.PrixEnchere,StringFormat='Prix de enchère : {0} €'}"
+                                <Label Text="{Binding PrixActuel.PrixEnchere,StringFormat='Prix de enchère : {0} €'}"
                                     TextColor="White" 
                                     HorizontalTextAlignment="Center"
                                     FontAttributes="Italic"/>
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="30">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="30">
                                 <Label Text="{Binding TempsRestantJour,StringFormat='{0} Jours'}" FontAttributes="Bold" TextColor="Black" />
                                 <Label Text="{Binding TempsRestantHeures,StringFormat='{0} H'}" FontAttributes="Bold" TextColor="Black"/>
                                 <Label Text="{Binding TempsRestantMinutes,StringFormat='{0} min'}" FontAttributes="Bold" TextColor="black"/>
@@ -69,8 +70,8 @@
                         </CollectionView>
                     </Frame>
                 </StackLayout>
-                <StackLayout HorizontalOptions="Center" Margin="0,555,0,0" Spacing="30" Orientation="Horizontal">
-                    <Entry Text="{Binding NewPrixEnchere,StringFormat=''}"
+                <StackLayout HorizontalOptions="Center" Margin="0,555,0,0" Spacing="30" Orientation="Horizontal" IsVisible="{Binding}">
+                    <Entry Text="{Binding NewPrixEnchere}"
                         BackgroundColor="Transparent"
                         Placeholder="Enchérissez"
                         PlaceholderColor="White"

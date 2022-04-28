@@ -46,7 +46,7 @@
                         HeightRequest="46"
                         CornerRadius="23"
                         Command="{Binding CommandBoutonInscription}"/>
-                <Label FontSize="16">
+                <!--<Label FontSize="16">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
@@ -60,7 +60,7 @@
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
-                </Label>
+                </Label>-->
                 
             </StackLayout>
         </Grid>

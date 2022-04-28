@@ -7,11 +7,12 @@ namespace AP4.Services
 {
     public static class Storage
     {
-        public static async void StockerMotDePasse(string id)
+        public static async void StockerMotDePasse(string id, string pseudo)
         {
             try
             {
                 await SecureStorage.SetAsync("ID", id);
+                await SecureStorage.SetAsync("Pseudo", pseudo);
             }
             catch (Exception ex)
             {

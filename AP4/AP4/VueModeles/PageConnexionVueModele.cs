@@ -33,26 +33,14 @@ namespace AP4.VueModeles
         #region Getters/Setters
         public string EmailEntry
         {
-            get
-            {
-                return _emailEntry;
-            }
-            set
-            {
-                SetProperty(ref _emailEntry, value);
-            }
+            get { return _emailEntry; }
+            set { SetProperty(ref _emailEntry, value);}
         }
 
         public string PasswordEntry
         {
-            get
-            {
-                return _passwordEntry;
-            }
-            set
-            {
-                SetProperty(ref _passwordEntry, value);
-            }
+            get { return _passwordEntry; }
+            set { SetProperty(ref _passwordEntry, value); }
         }
         public ICommand CommandBoutonRetour { get; }
         public ICommand CommandBoutonConnexion { get; private set; }
@@ -68,13 +56,13 @@ namespace AP4.VueModeles
         }
         public async void OnSubmit()
         {
-            User unUser = new User(EmailEntry, PasswordEntry, "nd", null,0);
+            User unUser = new User(EmailEntry, PasswordEntry, "nd","l",0);
             unUser = await _apiServices.GetOneAsync<User>("api/getUserByMailAndPass", User.CollClasse, unUser);
 
             if (unUser != null)
             {
                 auth = true;
-                Storage.StockerMotDePasse(unUser.Id.ToString());
+                Storage.StockerMotDePasse(unUser.Id.ToString(),unUser.Pseudo);
                 Application.Current.MainPage = new AppShell();
 
             }

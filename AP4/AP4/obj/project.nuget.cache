@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tLzI3noN1dXS5mU079dDdKE5Pw0a03rcPfeVjhUi1gjTKedWUGl1ee5y/dCKDOhiPtMiIdm1L2ArY3nZ8M9T8Q==",
+  "dgSpecHash": "fkZ+KG9xJlxeGWbM/lDo6qestFBQjq2Q7+0BIao7ni98vaQb9dXMNY/u5FEr1QWRVE87+grWdlQ4gGv9UepmVg==",
   "success": true,
   "projectFilePath": "C:\\Xamarin\\AP4\\AP4\\AP4\\AP4.csproj",
   "expectedPackageFiles": [
@@ -12,7 +12,8 @@
     "C:\\Users\\maeva\\.nuget\\packages\\xam.plugin.media\\5.0.1\\xam.plugin.media.5.0.1.nupkg.sha512",
     "C:\\Users\\maeva\\.nuget\\packages\\xam.plugins.forms.imagecircle\\3.0.0.5\\xam.plugins.forms.imagecircle.3.0.0.5.nupkg.sha512",
     "C:\\Users\\maeva\\.nuget\\packages\\xamarin.essentials\\1.7.1\\xamarin.essentials.1.7.1.nupkg.sha512",
-    "C:\\Users\\maeva\\.nuget\\packages\\xamarin.forms\\5.0.0.2337\\xamarin.forms.5.0.0.2337.nupkg.sha512"
+    "C:\\Users\\maeva\\.nuget\\packages\\xamarin.forms\\5.0.0.2401\\xamarin.forms.5.0.0.2401.nupkg.sha512",
+    "C:\\Users\\maeva\\.nuget\\packages\\xamarin.forms.maps\\5.0.0.2401\\xamarin.forms.maps.5.0.0.2401.nupkg.sha512"
   ],
   "logs": []
 }

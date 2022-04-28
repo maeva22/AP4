@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="AP4.Vues.PageMapsEnchereVue">
+    <Grid>
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="blue" Offset="0"/>
+                    <GradientStop Color="white" Offset="1"/>
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+        <StackLayout HeightRequest="100"  Margin="5,20,5,0">
+            <CollectionView ItemsSource="{Binding MaListeEncheres}" VerticalOptions="Fill" >
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="1" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowDefinitions="*,10,1" >
+                            <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10">
+                                <Grid>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                                        <Label Text="{Binding LeMagasin.Latitude}"
+                                                        TextColor="White"
+                                                        HorizontalTextAlignment="Center"
+                                                        FontAttributes="Italic"/>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+        <StackLayout Margin="20,250,20,0">
+            <Grid RowDefinitions="350" >
+                <maps:Map x:Name="map"
+                  IsShowingUser="True"
+                  ItemsSource="{Binding MaListeEncheres}">
+                    <maps:Map.ItemTemplate>
+                        <DataTemplate>
+                            <maps:Pin Position="{Binding LeMagasin.Position}"
+                                  Address="{Binding LeMagasin.Adresse}"
+                                  Label="{Binding LeMagasin.Nom}"/>
+                        </DataTemplate>
+                    </maps:Map.ItemTemplate>
+                </maps:Map>
+            </Grid>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -15,13 +15,17 @@
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2401" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Update="AppShell.xaml.cs">
       <DependentUpon>AppShell.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Vues\PageAccueilEnchereEnCoursVue\PageAccueilEnchereEnCoursClassiquesVue.xaml.cs">
+      <DependentUpon>PageAccueilEnchereEnCoursClassiquesVue.xaml</DependentUpon>
     </Compile>
     <Compile Update="Vues\PageIndexVue.xaml.cs">
       <DependentUpon>PageIndexVue.xaml</DependentUpon>
@@ -38,7 +42,16 @@
     <EmbeddedResource Update="Controls\FlyoutHeader.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Vues\PageAccueilVue.xaml">
+    <EmbeddedResource Update="Vues\PageAccueilEnchereEnCoursVue\PageAccueilEnchereEnCoursFlashsVue.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vues\PageAccueilEnchereEnCoursVue\PageAccueilEnchereEnCoursInverseesVue.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vues\PageAccueilEnchereEnCoursVue\PageAccueilEnchereEnCoursClassiquesVue.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vues\PageAccueilEnchereVue.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vues\PageConnexionVue.xaml">
@@ -47,10 +60,22 @@
     <EmbeddedResource Update="Vues\PageEnchereClassiqueVue.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Vues\PageEnchereFlashVue.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vues\PageEnchereGagneeVue.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vues\PageEnchereInverseVue.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Vues\PageIndexVue.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vues\PageInscriptionVue.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vues\PageMapsEnchereVue.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -15,9 +15,16 @@ C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\AP4.pdb
 C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageIndexVue.xaml.g.cs
 C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageInscriptionVue.xaml.g.cs
 C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageConnexionVue.xaml.g.cs
-C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageAccueilVue.xaml.g.cs
 C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
 C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Controls\FlyoutFooter.xaml.g.cs
 C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Controls\FlyoutHeader.xaml.g.cs
 C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageEnchereClassiqueVue.xaml.g.cs
 C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\AP4.csproj.AssemblyReference.cache
+C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageEnchereInverseVue.xaml.g.cs
+C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageAccueilEnchereEnCoursVue\PageAccueilEnchereEnCoursClassiquesVue.xaml.g.cs
+C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageAccueilEnchereEnCoursVue\PageAccueilEnchereEnCoursFlashsVue.xaml.g.cs
+C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageAccueilEnchereEnCoursVue\PageAccueilEnchereEnCoursInverseesVue.xaml.g.cs
+C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageAccueilEnchereVue.xaml.g.cs
+C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageEnchereGagneeVue.xaml.g.cs
+C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageEnchereFlashVue.xaml.g.cs
+C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageMapsEnchereVue.xaml.g.cs

@@ -1,7 +1,8 @@
 ﻿<Shell xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sys="clr-namespace:System;assembly=netstandard"
-    xmlns:views="clr-namespace:AP4.Vues" 
+    xmlns:views="clr-namespace:AP4.Vues.PageAccueilEnchereEnCoursVue" 
+    xmlns:viewsall="clr-namespace:AP4.Vues" 
     xmlns:controls="clr-namespace:AP4.Controls"
     x:Class="AP4.AppShell"
     x:Name="shell">
@@ -44,22 +45,31 @@
             Title="Classiques"
             Style="{StaticResource enchereEnCours}"
             Icon="classique.png"
-            ContentTemplate="{DataTemplate views:PageAccueilVue}"/>
+            ContentTemplate="{DataTemplate views:PageAccueilEnchereEnCoursClassiquesVue}"/>
         <ShellContent Route="EnchereInversees"
             Title="Inversées"
             Style="{StaticResource enchereEnCours}"
             Icon="inversees.png"
-            ContentTemplate="{DataTemplate views:PageAccueilVue}" />
+            ContentTemplate="{DataTemplate views:PageAccueilEnchereEnCoursInverseesVue}"/>
         <ShellContent Route="EnchereFlashs"
             Title="Flashs"
             Style="{StaticResource enchereEnCours}"
             Icon="flashs.png"
-            ContentTemplate="{DataTemplate views:PageAccueilVue}" />
+            ContentTemplate="{DataTemplate views:PageAccueilEnchereEnCoursFlashsVue}"/>
     </FlyoutItem>
-    <!--<ShellContent Route="Enchere"
+    <ShellContent Route="Enchere"
             Title="Toutes les Encheres"
             Style="{StaticResource enchereEnCours}"
             Icon="flashs.png"
-            ContentTemplate="{DataTemplate views:PageAccueilVue}" 
-            IsVisible="{Binding Connecter}"/>-->
+            ContentTemplate="{DataTemplate viewsall:PageAccueilEnchereVue}"/> 
+    <ShellContent Route="Maps"
+            Title="Maps"
+            Style="{StaticResource enchereEnCours}"
+            Icon="flashs.png"
+            ContentTemplate="{DataTemplate viewsall:PageMapsEnchereVue}"/>
+    <ShellContent Route="Deconnexion"
+            Title="Déconnexion"
+            Style="{StaticResource enchereEnCours}"
+            Icon="flashs.png"
+            ContentTemplate="{DataTemplate viewsall:PageIndexVue}"/>
 </Shell>

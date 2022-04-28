@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms.Maps;
 
 namespace AP4.Modeles
 {
@@ -15,12 +16,13 @@ namespace AP4.Modeles
         private string _ville;
         private int _codePostal;
         private int _portable;
-        private double _lagitude;
+        private double _latitude;
         private double _longitude;
+        private Position _position;
         #endregion
 
         #region Constructeurs
-        public Magasin(int id, string nom, string adresse, string ville, int codePostal, int portable, double lagitude, double longitude)
+        public Magasin(int id, string nom, string adresse, string ville, int codePostal, int portable, double latitude, double longitude)
         {
             _id = id;
             _nom = nom;
@@ -28,9 +30,9 @@ namespace AP4.Modeles
             _ville = ville;
             _codePostal = codePostal;
             _portable = portable;
-            _lagitude = lagitude;
+            _latitude = latitude;
             _longitude = longitude;
-
+            _position = new Position(latitude,longitude);
             Magasin.CollClasse.Add(this);
         }
         #endregion
@@ -42,8 +44,9 @@ namespace AP4.Modeles
         public string Ville { get => _ville; set => _ville = value; }
         public int CodePostal { get => _codePostal; set => _codePostal = value; }
         public int Portable { get => _portable; set => _portable = value; }
-        public double Lagitude { get => _lagitude; set => _lagitude = value; }
+        public double Latitude { get => _latitude; set => _latitude = value; }
         public double Longitude { get => _longitude; set => _longitude = value; }
+        public Position Position { get => _position; set => _position = value; }
         #endregion
 
         #region Methodes

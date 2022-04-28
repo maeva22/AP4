@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:AP4.Controls"
+             Shell.NavBarIsVisible="True"
+             x:Class="AP4.Vues.PageAccueilEnchereEnCoursVue.PageAccueilEnchereEnCoursClassiquesVue"
+             Title="Enchères Classiques">
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" 
+                                        Value="Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <BoxView>
+                <BoxView.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="blue" Offset="0"/>
+                        <GradientStop Color="white" Offset="1"/>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <StackLayout  HorizontalOptions="Center" Margin="0,40,0,0">
+                <Label Text="Bienvenue"
+                    TextColor="White" 
+                    FontAttributes="Bold"
+                    FontSize="28"
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout  HorizontalOptions="Center" Margin="0,100,0,0">
+                <Label Text="Enchères de produit"
+                    TextColor="White" 
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="Center" Margin="20,160,20,0">
+                <CollectionView ItemsSource="{Binding MaListeEncheresEnCoursClassique}" VerticalOptions="Fill" 
+                                SelectionMode="Single"
+                                SelectionChanged="SelectionEnchereEnCoursClassique">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RowDefinitions="*,10,1" >
+                                <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10">
+                                    <Grid>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                                            <Image Source="{Binding LeProduit.Photo}"
+                                                WidthRequest="125" 
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center"/>
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="Center" Spacing="10">
+                                                <Label Text="{Binding LeProduit.Nom}"
+                                                    Padding="0,15,0,0"
+                                                    TextColor="White"
+                                                    HorizontalTextAlignment="Center"
+                                                    FontAttributes="Bold"/>
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="8">
+                                                    <Label Text="{Binding LeMagasin.Nom}"
+                                                        TextColor="White"
+                                                        HorizontalTextAlignment="Center"
+                                                        FontAttributes="Italic"/>
+                                                    <Label Text="{Binding LeMagasin.Ville}"
+                                                        TextColor="White" 
+                                                        HorizontalTextAlignment="Center"
+                                                        FontAttributes="Italic"/>
+                                                </StackLayout>
+                                                <Label Text="{Binding Prixreserve,StringFormat='Prix de réserve : {0}€'}"
+                                                        TextColor="White" 
+                                                        HorizontalTextAlignment="Center"
+                                                        FontAttributes="Italic"/>
+                                                <Label Text="{Binding DateFin, StringFormat='Fin de l\'enchère le : {0} '}"
+                                                        TextColor="White" 
+                                                        HorizontalTextAlignment="Center"
+                                                        FontAttributes="Italic"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

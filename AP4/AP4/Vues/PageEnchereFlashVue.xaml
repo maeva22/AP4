@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AP4.Vues.PageEnchereFlashVue"
+             Title="Enchère Flash">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <BoxView>
+                    <BoxView.Background Grid.RowSpan="1">
+                        <LinearGradientBrush>
+                            <GradientStop Color="blue" Offset="0"/>
+                            <GradientStop Color="white" Offset="1"/>
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+                <StackLayout HorizontalOptions="Center" Margin="5,20,5,0">
+                    <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10" WidthRequest="400">
+                        <Grid>
+                            <Image Source="{Binding LEnchere.LeProduit.Photo}"/>
+                            <Grid x:Name="GridEnchereFlash">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="Center" Margin="0,550,0,0" Spacing="30" Orientation="Horizontal">
+                    <Button Text="Stop" 
+                        BackgroundColor="#a8d5ff"
+                        TextColor="White"
+                        WidthRequest="150"
+                        VerticalOptions="Center"
+                        CornerRadius="23"
+                        Command="{Binding CommandBoutonEncherir}"  />
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
