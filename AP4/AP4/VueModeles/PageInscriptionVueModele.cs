@@ -29,11 +29,16 @@ namespace AP4.VueModeles
         #endregion
 
         #region Methodes
+        /// <summary>
+        /// permet d'accéder à la page index du début 
+        /// </summary>
         public void ActionCommandBoutonRetour()
         {
             Application.Current.MainPage = new PageIndexVue();
         }
-
+        /// <summary>
+        /// permet d'inscrire un nouvel utilisateur
+        /// </summary>
         public async void PostUser(User unUser)
         {
             int resultat = await _apiServices.PostAsync<User>(unUser, "api/postUser");

@@ -119,6 +119,9 @@ namespace AP4.VueModeles
         #endregion
 
         #region Methodes
+        /// <summary>
+        /// Permet d'affciher des informations si l'enchère est gagnée ou non 
+        /// </summary>
         public void EnchereGagnerOuPas()
         {
             Task.Run(async () =>
@@ -144,16 +147,26 @@ namespace AP4.VueModeles
             });
         }
 
+        /// <summary>
+        /// Permet de faire baisser le prix de 1 toutes les secondes  
+        /// </summary>
+        /// <param name="param"></param>
         public void GetPriceMinusOne(bool param)
         {
             //if (PrixEnBaisse > LEnchere.Prixreserve)
 
-            if (TimePrice == TempsRestantSecondes + 1 && param==true)
+            if (TimePrice == TempsRestantSecondes + 1 && param == true)
             {
                 PrixEnBaisse = PrixEnBaisse - 1;
                 TimePrice = TempsRestantSecondes;
             }
         }
+        /// <summary>
+        /// Permet de stopper la descente du prix en baisse
+        /// Si le prix en baisse est supérieur ou égal au prix de réserve 
+        /// Alors le temps qu'il reste se stop, l'enchère est gagné par l'utilisateur et l'animation s'active. L'enchère est terminée.
+        /// Sinon le prix continue de descendre et un message d'erreur s'affiche
+        /// </summary>
         public async void PostStopEncherirInverse()
         {
             GetPriceMinusOne(false);
@@ -173,6 +186,9 @@ namespace AP4.VueModeles
                 await Application.Current.MainPage.DisplayAlert("L'enchère n'est pas à vous vous proposez un prix trop bas !", "Recommencez vite", "OK");
             }
         }
+        /// <summary>
+        /// permet d'afficher une animation pendant 10 secondes 
+        /// </summary>
         public void AnimationEncherir()
         {
             Task.Run(async () =>
@@ -182,6 +198,11 @@ namespace AP4.VueModeles
                 Animation = false;
             });
         }
+
+        /// <summary>
+        /// permet de savoir combien de temps en jours, en heures, en minutes et secondes il reste entre la date de début et de fin
+        /// </summary>
+        /// <param name="param">date de la fin de l'enchère</param>
         public void GetTimerRemaining(DateTime param) 
         {
             DateTime datefin = param;

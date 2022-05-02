@@ -45,12 +45,10 @@ namespace AP4.VueModeles.PageAccueilEnchereEnCoursVueModele
         #endregion
 
         #region Methodes
-
-        /*public async void GetListeEncheres()
-        {
-            Enchere.CollClasse.Clear();
-            MaListeEncheresEnCours = await _apiServices.GetAllAsync<Enchere>("api/getEncheresEnCours", Enchere.CollClasse);
-        }*/
+        /// <summary>
+        /// Récupère la liste des enchères classiques en cours 
+        /// </summary>
+        /// <param name="idEnchereEnCoursClassique">id enchère classique en cours (1)</param>
         public void GetListeEncheresEnCoursClassiques(int idEnchereEnCoursClassique)
         {
             Task.Run(async () =>

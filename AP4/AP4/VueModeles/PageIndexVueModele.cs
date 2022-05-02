@@ -30,16 +30,23 @@ namespace AP4.VueModeles
         #endregion
 
         #region Methodes
+        /// <summary>
+        /// permet d'accéder à la page d'inscription
+        /// </summary>
         public void ActionCommandBoutonInscription()
         {
             Application.Current.MainPage = new PageInscriptionVue();
         }
-
+        /// <summary>
+        /// permet d'accéder à la page de connexion
+        /// </summary>
         public void ActionCommandBoutonConnexion()
         {
             Application.Current.MainPage = new PageConnexionVue();
         }
-
+        /// <summary>
+        /// permet d'accéder à la page des enchères en cours sans se connecter
+        /// </summary>
         public void ActionTapCommandAccueil()
         {
             Application.Current.MainPage = new AppShell();

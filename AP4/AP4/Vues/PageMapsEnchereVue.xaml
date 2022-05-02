@@ -22,8 +22,8 @@
                         <Grid RowDefinitions="*,10,1" >
                             <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10">
                                 <Grid>
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
-                                        <Label Text="{Binding LeMagasin.Latitude}"
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" Spacing="10">
+                                        <Label Text="{Binding LeMagasin.Nom}"
                                                         TextColor="White"
                                                         HorizontalTextAlignment="Center"
                                                         FontAttributes="Italic"/>

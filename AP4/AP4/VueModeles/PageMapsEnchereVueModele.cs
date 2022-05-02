@@ -41,6 +41,9 @@ namespace AP4.VueModeles
         #endregion
 
         #region Methodes
+        /// <summary>
+        /// Permet d'avoir la liste des enchères
+        /// </summary>
         public async void GetListeEncheres()
         {
             MaListeEncheres = await _apiServices.GetAllAsync<Enchere>("api/getEnchere", Enchere.CollClasse);

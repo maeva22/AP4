@@ -107,6 +107,9 @@ namespace AP4.VueModeles
         #endregion
 
         #region Methodes
+        /// <summary>
+        /// permet d'avoir la liste des 6 derniers enchérisseurs actualisé toutes les 2 secondes
+        /// </summary>
         public void GetListeEncherir()
         {
             Task.Run(async () =>
@@ -121,6 +124,9 @@ namespace AP4.VueModeles
                 while(true);
             });
         }
+        /// <summary>
+        /// permet d'avoir le prix actuel de l'enchère  actualisé toutes les 2 secondes
+        /// </summary>
         private void GetActualPrice()
         {
             Task.Run(async () =>
@@ -134,6 +140,12 @@ namespace AP4.VueModeles
 
             });
         }
+        /// <summary>
+        /// fonction pour enchèrir sur le prix actuel
+        /// on ne peut enchèrir que si le prix est supérieur au prix actuel et si l'enchérisseur n'est pas le propriétaire du prix actuel 
+        /// Si les conditions sont respectés le prix de l'enchérisseur devient le prix actuel et une animation s'active
+        /// Sinon des messages d'erreur s'affiche est le prix actuel ne change pas 
+        /// </summary>
         public async void ActionCommandBoutonEncherir()
         {
             IdUser = await SecureStorage.GetAsync("ID");
@@ -157,6 +169,9 @@ namespace AP4.VueModeles
             }
 
         }
+        /// <summary>
+        /// permet d'afficher une animation pendant 10 secondes 
+        /// </summary>
         public void AnimationEncherir()
         {
             Task.Run(async () =>
@@ -166,6 +181,10 @@ namespace AP4.VueModeles
                 Animation = false;
             });
         }
+        /// <summary>
+        /// permet de savoir combien de temps en jours, en heures, en minutes et secondes il reste entre la date de début et de fin
+        /// </summary>
+        /// <param name="param">date de la fin de l'enchère</param>
         public void GetTimerRemaining(DateTime param)
         {
             DateTime datefin = param;

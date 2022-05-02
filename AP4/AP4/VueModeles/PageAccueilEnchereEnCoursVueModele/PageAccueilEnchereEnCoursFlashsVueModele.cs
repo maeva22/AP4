@@ -44,7 +44,10 @@ namespace AP4.VueModeles.PageAccueilEnchereEnCoursVueModele
         #endregion
 
         #region Methodes
-
+        /// <summary>
+        /// Récupère la liste des enchères flashs en cours 
+        /// </summary>
+        /// <param name="idEnchereEnCoursFlashs">id enchère flash en cours (3)</param>
         public void GetListeEncheresEnCoursFlashs(int idEnchereEnCoursFlashs)
         {
             Task.Run(async () =>

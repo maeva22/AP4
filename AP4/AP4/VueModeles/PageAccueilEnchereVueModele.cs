@@ -33,7 +33,9 @@ namespace AP4.VueModeles
         #endregion
 
         #region Methodes
-
+        /// <summary>
+        /// Récupère la liste des enchères inversées en cours 
+        /// </summary>
         public async void GetListeEncheresEnCoursInversees()
         {
             MaListeEncheres = await _apiServices.GetAllAsync<Enchere>("api/getEnchere", Enchere.CollClasse);

@@ -41,7 +41,10 @@ namespace AP4.VueModeles.PageAccueilEnchereEnCoursVueModele
         #endregion
 
         #region Methodes
-
+        /// <summary>
+        /// Récupère la liste des enchères inversées en cours 
+        /// </summary>
+        /// <param name="idEnchereEnCoursInversees">id enchère inversées en cours (2)</param>
         public void GetListeEncheresEnCoursInversees(int idEnchereEnCoursInversees)
         {
             Task.Run(async () =>

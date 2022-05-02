@@ -11,7 +11,7 @@ namespace AP4
         {
             InitializeComponent();
 
-            MainPage = new PageMapsEnchereVue();
+            MainPage = new PageIndexVue();
         }
 
         protected override void OnStart()

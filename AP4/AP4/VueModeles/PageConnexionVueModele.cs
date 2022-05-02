@@ -50,10 +50,19 @@ namespace AP4.VueModeles
         #endregion
 
         #region Methodes
+        /// <summary>
+        /// Aller à la page PageIndexVue
+        /// </summary>
         public void ActionCommandBoutonRetour()
         {
             Application.Current.MainPage = new PageIndexVue();
         }
+        /// <summary>
+        /// permet de se connecter en regardant si l'utilisateur correspond à un utilisateur dans l'API 
+        /// Si l'utilisateur correspond à un utilisateur dans l'API alors il est connecté
+        /// et est renvoyé l'utilisateur sur la page des enchère en cours avec un message lui disant qu'il est bien connecté
+        /// sinon il est renvoyé un message d'erreur et reste sur la page actuelle
+        /// </summary>
         public async void OnSubmit()
         {
             User unUser = new User(EmailEntry, PasswordEntry, "nd","l",0);
@@ -64,12 +73,13 @@ namespace AP4.VueModeles
                 auth = true;
                 Storage.StockerMotDePasse(unUser.Id.ToString(),unUser.Pseudo);
                 Application.Current.MainPage = new AppShell();
+                await Application.Current.MainPage.DisplayAlert("Authentification Réussis !", "Vous êtes connecté", "OK");
 
             }
             else
             {
                 auth = false;
-                await Application.Current.MainPage.DisplayAlert("Login No", "Echec", "OK");
+                await Application.Current.MainPage.DisplayAlert("Authentification Echoué !", "Êtes-vous sur d'avoir un compte ?", "OK");
             }
         }
         #endregion
