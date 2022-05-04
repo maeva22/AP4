@@ -709,3 +709,8 @@ C:\Xamarin\AP4\AP4\AP4.Android\obj\Debug\120\android\src\mono\com\google\android
 C:\Xamarin\AP4\AP4\AP4.Android\obj\Debug\120\android\src\mono\com\google\android\gms\tasks\OnFailureListenerImplementor.java
 C:\Xamarin\AP4\AP4\AP4.Android\obj\Debug\120\android\src\mono\com\google\android\gms\tasks\OnSuccessListenerImplementor.java
 C:\Xamarin\AP4\AP4\AP4.Android\obj\Debug\120\android\src\mono\com\google\android\gms\tasks\OnTokenCanceledListenerImplementor.java
+C:\Xamarin\AP4\AP4\AP4.Android\obj\Debug\120\res\drawable\emplacement.png
+C:\Xamarin\AP4\AP4\AP4.Android\obj\Debug\120\res\drawable\sedeconnecter.png
+C:\Xamarin\AP4\AP4\AP4.Android\obj\Debug\120\res\drawable\encheres.png
+C:\Xamarin\AP4\AP4\AP4.Android\obj\Debug\120\res\drawable\compte.png
+C:\Xamarin\AP4\AP4\AP4.Android\obj\Debug\120\res\drawable\utilisateur.png

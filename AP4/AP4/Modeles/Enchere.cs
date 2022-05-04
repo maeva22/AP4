@@ -16,7 +16,8 @@ namespace AP4.Modeles
         private float _prixreserve;
         private float _prixdepart;
         private int _type_enchere_id;
-        
+        private string _tableauFlash;
+
         private Produit _leProduit;
         private TypeEnchere _leTypeEnchere;
         private Magasin _leMagasin;
@@ -26,7 +27,7 @@ namespace AP4.Modeles
 
         #region Constructeurs
 
-        public Enchere(int id, DateTime dateDebut, DateTime dateFin, float prixreserve, float prixdepart, int type_enchere_id, Produit leProduit, TypeEnchere letypeenchere, Magasin leMagasin)
+        public Enchere(int id, DateTime dateDebut, DateTime dateFin, float prixreserve, float prixdepart, int type_enchere_id, Produit leProduit, TypeEnchere letypeenchere, Magasin leMagasin, string tableauFlash)
         {
             _id = id;
             _dateDebut = dateDebut;
@@ -37,7 +38,7 @@ namespace AP4.Modeles
             _leProduit = leProduit;
             _leTypeEnchere = letypeenchere;
             _leMagasin = leMagasin;
-            
+            _tableauFlash = tableauFlash;
             Enchere.CollClasse.Add(this);
 
         }
@@ -51,7 +52,8 @@ namespace AP4.Modeles
         public float Prixreserve { get => _prixreserve; set => _prixreserve = value; }
         public float PrixDepart { get => _prixdepart; set => _prixdepart = value; }
         public int Type_enchere_id { get => _type_enchere_id; set => _type_enchere_id = value; }
-        
+        public string TableauFlash { get => _tableauFlash; set => _tableauFlash = value; }
+
         public Produit LeProduit { get => _leProduit; set => _leProduit = value; }
         public TypeEnchere LeTypeEnchere { get => _leTypeEnchere; set => _leTypeEnchere = value; }
         public Magasin LeMagasin { get => _leMagasin; set => _leMagasin = value; }

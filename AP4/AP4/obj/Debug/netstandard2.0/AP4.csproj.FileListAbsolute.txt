@@ -28,3 +28,4 @@ C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageAccueilEnchereVue.xaml.
 C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageEnchereGagneeVue.xaml.g.cs
 C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageEnchereFlashVue.xaml.g.cs
 C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageMapsEnchereVue.xaml.g.cs
+C:\Xamarin\AP4\AP4\AP4\obj\Debug\netstandard2.0\Vues\PageInformationUserVue.xaml.g.cs

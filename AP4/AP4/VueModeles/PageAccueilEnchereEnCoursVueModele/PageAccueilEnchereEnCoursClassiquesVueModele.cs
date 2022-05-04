@@ -23,7 +23,6 @@ namespace AP4.VueModeles.PageAccueilEnchereEnCoursVueModele
         #region Constructeurs
         public PageAccueilEnchereEnCoursClassiquesVueModele()
         {
-            //GetListeEncheres();
             GetListeEncheresEnCoursClassiques(1);
         }
         #endregion

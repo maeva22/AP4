@@ -60,16 +60,21 @@
     <ShellContent Route="Enchere"
             Title="Toutes les Encheres"
             Style="{StaticResource enchereEnCours}"
-            Icon="flashs.png"
+            Icon="encheres.png"
             ContentTemplate="{DataTemplate viewsall:PageAccueilEnchereVue}"/> 
     <ShellContent Route="Maps"
             Title="Maps"
             Style="{StaticResource enchereEnCours}"
-            Icon="flashs.png"
+            Icon="emplacement.png"
             ContentTemplate="{DataTemplate viewsall:PageMapsEnchereVue}"/>
+    <ShellContent Route="Compte"
+            Title="Compte"
+            Style="{StaticResource enchereEnCours}"
+            Icon="utilisateur.png"
+            ContentTemplate="{DataTemplate viewsall:PageInformationUserVue}"/>
     <ShellContent Route="Deconnexion"
             Title="Déconnexion"
             Style="{StaticResource enchereEnCours}"
-            Icon="flashs.png"
+            Icon="seDeconnecter.png"
             ContentTemplate="{DataTemplate viewsall:PageIndexVue}"/>
 </Shell>

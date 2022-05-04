@@ -7,8 +7,8 @@ namespace AP4
     public class Constantes
     {
         // Base API
-        public static string BaseApiAddress => "http://172.17.0.61:8000/";
-        //public static string BaseApiAddress => "http://80.13.113.244:2081/";
+        //public static string BaseApiAddress => "http://172.17.0.61:8000/";
+        public static string BaseApiAddress => "http://80.13.113.244:2081/";
 
     }
 }

@@ -15,7 +15,12 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Fichiers divers",
       "ColorIndex": -1
+    },
+    "1f711a81-8497-481b-996e-19d066856f9c": {
+      "ProjectGuid": "1f711a81-8497-481b-996e-19d066856f9c",
+      "DisplayName": "AP4Tests",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }

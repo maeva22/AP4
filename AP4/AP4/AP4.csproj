@@ -30,6 +30,9 @@
     <Compile Update="Vues\PageIndexVue.xaml.cs">
       <DependentUpon>PageIndexVue.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Vues\PageInformationUserVue.xaml.cs">
+      <DependentUpon>PageInformationUserVue.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -70,6 +73,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vues\PageIndexVue.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vues\PageInformationUserVue.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vues\PageInscriptionVue.xaml">

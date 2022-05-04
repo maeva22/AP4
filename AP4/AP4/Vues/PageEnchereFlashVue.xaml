@@ -15,6 +15,23 @@
                     </BoxView.Background>
                 </BoxView>
                 <StackLayout HorizontalOptions="Center" Margin="5,20,5,0">
+                    <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10" WidthRequest="280">
+                        <StackLayout>
+                            <Label Text="{Binding PrixActuel.PrixEnchere,StringFormat='Prix actuel : {0} €'}"
+                                    TextColor="White" 
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Center"/>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="30" IsVisible="{Binding NonGagner}">
+                                <Label Text="{Binding TempsRestantJour,StringFormat='{0} Jours'}" FontAttributes="Bold" TextColor="Black" />
+                                <Label Text="{Binding TempsRestantHeures,StringFormat='{0} H'}" FontAttributes="Bold" TextColor="Black"/>
+                                <Label Text="{Binding TempsRestantMinutes,StringFormat='{0} min'}" FontAttributes="Bold" TextColor="black"/>
+                                <Label Text="{Binding TempsRestantSecondes,StringFormat='{0}s'}" FontAttributes="Bold" TextColor="Black"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center" Margin="5,150,5,0">
                     <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10" WidthRequest="400">
                         <Grid>
                             <Image Source="{Binding LEnchere.LeProduit.Photo}"/>
@@ -35,15 +52,25 @@
                         </Grid>
                     </Frame>
                 </StackLayout>
-
-                <StackLayout HorizontalOptions="Center" Margin="0,550,0,0" Spacing="30" Orientation="Horizontal">
-                    <Button Text="Stop" 
+                <StackLayout HorizontalOptions="Center" Margin="0,450,0,0" Spacing="30" Orientation="Horizontal">
+                    <Button Text="Participer à l'enchère" 
                         BackgroundColor="#a8d5ff"
                         TextColor="White"
                         WidthRequest="150"
                         VerticalOptions="Center"
                         CornerRadius="23"
+                        IsVisible="{Binding BtnParticipation}"
                         Command="{Binding CommandBoutonEncherir}"  />
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center" Margin="0,450,0,0" Spacing="30" Orientation="Horizontal">
+                    <Button Text="Passer" 
+                        BackgroundColor="#a8d5ff"
+                        TextColor="White"
+                        WidthRequest="150"
+                        VerticalOptions="Center"
+                        CornerRadius="23"
+                        IsVisible="{Binding BtnPasser}"
+                        Command="{Binding CommandBoutonPasser}"  />
                 </StackLayout>
             </Grid>
         </ScrollView>

@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP4.Android", "AP4\AP4.Android\AP4.Android.csproj", "{8263AA46-684A-4610-B545-0F98C5296908}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP4", "AP4\AP4\AP4.csproj", "{ECE92AE6-50D6-43E1-B7D2-D26B8B1C25C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AP4", "AP4\AP4\AP4.csproj", "{ECE92AE6-50D6-43E1-B7D2-D26B8B1C25C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP4Tests", "AP4\AP4Tests\AP4Tests.csproj", "{1F711A81-8497-481B-996E-19D066856F9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{ECE92AE6-50D6-43E1-B7D2-D26B8B1C25C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECE92AE6-50D6-43E1-B7D2-D26B8B1C25C2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ECE92AE6-50D6-43E1-B7D2-D26B8B1C25C2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1F711A81-8497-481B-996E-19D066856F9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F711A81-8497-481B-996E-19D066856F9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F711A81-8497-481B-996E-19D066856F9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F711A81-8497-481B-996E-19D066856F9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

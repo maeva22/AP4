@@ -14,6 +14,7 @@ namespace AP4.VueModeles
     {
         #region Attributs
         private ObservableCollection<Enchere> _maListeEncheres;
+
         private readonly Api _apiServices = new Api();
         #endregion
 
@@ -42,7 +43,7 @@ namespace AP4.VueModeles
 
         #region Methodes
         /// <summary>
-        /// Permet d'avoir la liste des enchères
+        /// Permet d'avoir la liste des enchères en cours
         /// </summary>
         public async void GetListeEncheres()
         {
