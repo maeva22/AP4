@@ -35,17 +35,20 @@ namespace AP4.Vues
         async void AddPhoto(object sender, EventArgs e)
         {
             (sender as Button).IsEnabled = false;
+
             Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
             if (stream != null)
             {
-                using (MemoryStream memory = new MemoryStream())
+                if (stream != null)
                 {
-                    stream.CopyTo(memory);
-                    byte[] data = memory.ToArray();
-                    Photo1.Source = ImageSource.FromStream(() => new MemoryStream(data));
-                    Photo64 = Convert.ToBase64String(data);
-                }
+                    using (MemoryStream memory = new MemoryStream())
+                    {
 
+                        Photo64 = Services.Conversion.ConvertToBase64(stream);
+
+                    }
+
+                }
             }
             (sender as Button).IsEnabled = true;
         }
@@ -82,7 +85,7 @@ namespace AP4.Vues
                     // vérifier que le mot de passe entré et le même entré dans le mot de passe de vérification
                     if (PasswordEntry.Text == PasswordVerifyEntry.Text)
                     {
-                        User unUser = new User(EmailEntry.Text, PasswordEntry.Text, PseudoEntry.Text, null, 0);
+                        User unUser = new User(EmailEntry.Text, PasswordEntry.Text, PseudoEntry.Text, Photo64, 0);
                         vueModele.PostUser(unUser);
 
                         await DisplayAlert("Bravo", "enregistrement réussi", "ok");

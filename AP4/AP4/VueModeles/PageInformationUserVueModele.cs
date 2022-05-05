@@ -49,7 +49,7 @@ namespace AP4.VueModeles
             {
                 do
                 {
-                    MaListeEncheresParticipe = await _apiServices.GetAllAsyncID<Enchere>("api/getEncheresParticipes", Enchere.CollClasse, "IdUser", int.Parse(await SecureStorage.GetAsync("ID")));
+                    MaListeEncheresParticipe = await _apiServices.GetAllAsyncID<Enchere>("api/getEncheresParticipes", Enchere.CollClasse, "Id", int.Parse(await SecureStorage.GetAsync("ID")));
                     Enchere.CollClasse.Clear();
                     Thread.Sleep(2000);
                 }

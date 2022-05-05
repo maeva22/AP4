@@ -13,7 +13,7 @@
                 </BoxView.Background>
             </BoxView>
             <StackLayout HorizontalOptions="Center" Margin="20,160,20,0">
-                <CollectionView ItemsSource="{Binding MaListeEncheresParticipe}" VerticalOptions="Fill">
+                <CollectionView ItemsSource="{Binding MaListeEncheresParticipe}" VerticalOptions="Fill" >
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical" Span="1" />
                     </CollectionView.ItemsLayout>
@@ -43,10 +43,6 @@
                                                         HorizontalTextAlignment="Center"
                                                         FontAttributes="Italic"/>
                                                 </StackLayout>
-                                                <Label Text="{Binding Prixreserve,StringFormat='Prix de réserve : {0}€'}"
-                                                        TextColor="White" 
-                                                        HorizontalTextAlignment="Center"
-                                                        FontAttributes="Italic"/>
                                                 <Label Text="{Binding DateFin, StringFormat='Fin de l\'enchère le : {0} '}"
                                                         TextColor="White" 
                                                         HorizontalTextAlignment="Center"

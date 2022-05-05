@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
-             x:Class="AP4.Vues.PageMapsEnchereVue">
+             x:Class="AP4.Vues.PageMapsEnchereVue"
+             Title="Map">
     <ContentPage.Resources>
         <Style TargetType="Grid">
             <Setter Property="VisualStateManager.VisualStateGroups">
@@ -21,56 +22,56 @@
         </Style>
     </ContentPage.Resources>
     <Grid>
-        <BoxView>
-            <BoxView.Background>
-                <LinearGradientBrush>
-                    <GradientStop Color="blue" Offset="0"/>
-                    <GradientStop Color="white" Offset="1"/>
-                </LinearGradientBrush>
-            </BoxView.Background>
-        </BoxView>
+            <BoxView>
+                <BoxView.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="blue" Offset="0"/>
+                        <GradientStop Color="white" Offset="1"/>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
         <StackLayout Margin="20,20,20,0">
             <Grid RowDefinitions="350" >
                 <maps:Map x:Name="map"
-                  IsShowingUser="True"
-                  ItemsSource="{Binding MaListeEncheres}">
+                      IsShowingUser="True"
+                      ItemsSource="{Binding MaListeEncheres}">
                     <maps:Map.ItemTemplate>
                         <DataTemplate>
                             <maps:Pin
-                                  Position="{Binding LeMagasin.Position}"
-                                  Address="{Binding LeMagasin.Adresse}"
-                                  Label="{Binding LeMagasin.Nom}"
-                                  InfoWindowClicked="Info"/>
+                                      Position="{Binding LeMagasin.Position}"
+                                      Address="{Binding LeMagasin.Adresse}"
+                                      Label="{Binding LeMagasin.Nom}"
+                                      InfoWindowClicked="Info"/>
                         </DataTemplate>
-                        </maps:Map.ItemTemplate>
+                    </maps:Map.ItemTemplate>
                 </maps:Map>
             </Grid>
         </StackLayout>
         <StackLayout x:Name="liste" HeightRequest="50"  Margin="5,400,5,0" IsVisible="True">
             <CollectionView x:Name="Liste" VerticalOptions="Fill"
-                            SelectionMode="Single"
-                            SelectionChanged="SelectionEnchere"> 
+                                SelectionMode="Single"
+                                SelectionChanged="SelectionEnchere">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Horizontal" Span="1" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid RowDefinitions="200" ColumnDefinitions="150,5">
+                        <Grid RowDefinitions="220" ColumnDefinitions="150,5">
                             <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10">
                                 <Grid>
                                     <StackLayout Orientation="Vertical" HorizontalOptions="Center" Spacing="10">
                                         <Image Source="{Binding LeProduit.Photo}"
-                                                WidthRequest="75" 
-                                                VerticalOptions="Center"
-                                                HorizontalOptions="Center"/>
+                                                    WidthRequest="75" 
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"/>
                                         <Label Text="{Binding LeProduit.Nom}"
-                                            TextColor="White"
-                                            HorizontalTextAlignment="Center"
-                                            FontAttributes="Italic"/>
+                                                TextColor="White"
+                                                HorizontalTextAlignment="Center"
+                                                FontAttributes="Italic"/>
                                         <Label Text="{Binding LeTypeEnchere.Nom,StringFormat='Enchère {0}'}"
-                                            TextColor="White"
-                                            HorizontalTextAlignment="Center"
-                                            FontAttributes="Italic"/>
+                                                TextColor="White"
+                                                HorizontalTextAlignment="Center"
+                                                FontAttributes="Italic"/>
                                     </StackLayout>
                                 </Grid>
                             </Frame>

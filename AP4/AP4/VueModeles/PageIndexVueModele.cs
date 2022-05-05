@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace AP4.VueModeles
@@ -20,6 +21,8 @@ namespace AP4.VueModeles
             CommandBoutonConnexion = new Command(ActionCommandBoutonConnexion);
 
             TapCommandAccueil = new Command(ActionTapCommandAccueil);
+            ViderSecureStorage();
+
         }
         #endregion
 
@@ -50,6 +53,12 @@ namespace AP4.VueModeles
         public void ActionTapCommandAccueil()
         {
             Application.Current.MainPage = new AppShell();
+        }
+
+        public async void ViderSecureStorage()
+        {
+            SecureStorage.Remove("ID");
+            SecureStorage.Remove("Pseudo");
         }
         #endregion
     }
